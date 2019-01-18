@@ -1,11 +1,22 @@
 // ==== Challenge 1: Write your own closure ====
 // Write a simple closure of your own creation.  Keep it simple!
 
+const greetingOptions = ["Welcome", "Good morning", "Good afternoon", "Howdy"];
+const user = "Brandon";
+const greeting = choice => {
+  return `${greetingOptions[choice]}, ${user}`;
+};
+console.log(greeting(1));
 
 // ==== Challenge 2: Create a counter function ====
 const counter = () => {
+  let count = 0;
+  return () => {
+    return count++;
+  };
   // Return a function that when invoked increments and returns a counter variable.
 };
+const newCounter = counter();
 // Example usage: const newCounter = counter();
 // newCounter(); // 1
 // newCounter(); // 2
