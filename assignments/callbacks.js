@@ -21,15 +21,21 @@ const items = ["Pencil", "Notebook", "yo-yo", "Gum"];
 
 */
 
+const callback = res => console.log(res);
+
 function getLength(arr, cb) {
   return cb(arr.length);
   // getLength passes the length of the array into the callback.
 }
 
+getLength(items, callback);
+
 function last(arr, cb) {
   return cb(arr.slice(-1));
   // last passes the last item of the array into the callback.
 }
+
+last(items, callback);
 
 function sumNums(x, y, cb) {
   let result = x + y;
@@ -37,11 +43,15 @@ function sumNums(x, y, cb) {
   // sumNums adds two numbers (x, y) and passes the result to the callback.
 }
 
+sumNums(2, 3, callback);
+
 function multiplyNums(x, y, cb) {
   let result = x * y;
   return cb(result);
   // multiplyNums multiplies two numbers and passes the result to the callback.
 }
+
+multiplyNums(2, 3, callback);
 
 function contains(item, list, cb) {
   if (list.includes(item)) {
@@ -53,7 +63,11 @@ function contains(item, list, cb) {
   // Pass true to the callback if it is, otherwise pass false.
 }
 
+contains("Gum", items, callback);
+
 /* STRETCH PROBLEM */
+
+const numbers = [0, 0, 1, 1, 2, 3, 4, 5, 5];
 
 function removeDuplicates(array, cb) {
   const cleanArr = array.filter(function(elem, index, self) {
@@ -64,3 +78,5 @@ function removeDuplicates(array, cb) {
   // Pass the duplicate free array to the callback function.
   // Do not mutate the original array.
 }
+
+removeDuplicates(numbers, callback);
